@@ -1,0 +1,424 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* Class-based dark mode (the theme toggle sets .dark on <html>). */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Values mirror packages/shared/src/design.ts so web and mobile share one
+ * design language: monochrome surfaces, ink primary actions, lavender accents.
+ */
+:root {
+  --radius: 0.75rem;
+
+  --background: #ffffff;
+  --foreground: #111113;
+  --card: #ffffff;
+  --card-foreground: #111113;
+  --popover: #ffffff;
+  --popover-foreground: #111113;
+  --primary: #111113;
+  --primary-foreground: #ffffff;
+  --secondary: #f2f2f4;
+  --secondary-foreground: #111113;
+  --muted: #f2f2f4;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f6;
+  --accent-foreground: #111113;
+  --destructive: #dc2626;
+  --border: #e9e9ec;
+  --input: #e4e4e8;
+  --ring: #a99bfa;
+
+  --subtle: #f7f7f8;
+  --sidebar: #fbfbfc;
+  --nav-active: #ffffff;
+  --shadow-card: 0 1px 2px rgb(17 17 19 / 0.04);
+
+  --brand-50: #f6f4ff;
+  --brand-100: #eeeaff;
+  --brand-200: #dedafe;
+  --brand-300: #c6befc;
+  --brand-400: #a99bfa;
+  --brand-500: #8e7cf8;
+  --brand-600: #7563ec;
+  --brand-700: #5f4fd1;
+
+  --lime: #d9ff5c;
+  --lime-ink: #1a1f05;
+  --canvas: #ebeff5;
+  --hue-lime-bg: #eeffc2;
+  --hue-lime-fg: #4d6b00;
+  --hue-lavender-bg: #eeeaff;
+  --hue-lavender-fg: #5f4fd1;
+  --hue-peach-bg: #ffe7da;
+  --hue-peach-fg: #b4532a;
+  --hue-sky-bg: #ddf0ff;
+  --hue-sky-fg: #1f6fb2;
+  --hue-mint-bg: #d9f7ea;
+  --hue-mint-fg: #17805a;
+  --hue-rose-bg: #ffe0ea;
+  --hue-rose-fg: #b8295b;
+}
+
+.dark {
+  --background: #0b0b0e;
+  --foreground: #ededf0;
+  --card: #121216;
+  --card-foreground: #ededf0;
+  --popover: #16161b;
+  --popover-foreground: #ededf0;
+  --primary: #ededf0;
+  --primary-foreground: #111113;
+  --secondary: #1d1d23;
+  --secondary-foreground: #ededf0;
+  --muted: #1d1d23;
+  --muted-foreground: #8e8e99;
+  --accent: #1d1d23;
+  --accent-foreground: #ededf0;
+  --destructive: #ef4444;
+  --border: #26262d;
+  --input: #2c2c34;
+  --ring: #8e7cf8;
+
+  --subtle: #17171c;
+  --sidebar: #0e0e12;
+  --nav-active: #1a1a20;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+
+  --brand-50: #1b1830;
+  --brand-100: #241f45;
+  --brand-200: #342c66;
+  --brand-300: #4c3fa8;
+  --brand-400: #8e7cf8;
+  --brand-500: #a99bfa;
+  --brand-600: #b8acfb;
+  --brand-700: #cdc4fd;
+
+  --lime: #d9ff5c;
+  --lime-ink: #1a1f05;
+  --canvas: #0e0f13;
+  --hue-lime-bg: rgb(217 255 92 / 0.14);
+  --hue-lime-fg: #d9ff5c;
+  --hue-lavender-bg: rgb(169 155 250 / 0.16);
+  --hue-lavender-fg: #c6befc;
+  --hue-peach-bg: rgb(255 179 138 / 0.15);
+  --hue-peach-fg: #ffc4a3;
+  --hue-sky-bg: rgb(124 196 255 / 0.15);
+  --hue-sky-fg: #a3d5ff;
+  --hue-mint-bg: rgb(110 231 183 / 0.14);
+  --hue-mint-fg: #86efc6;
+  --hue-rose-bg: rgb(255 143 177 / 0.15);
+  --hue-rose-fg: #ffadc6;
+}
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-subtle: var(--subtle);
+  --color-sidebar: var(--sidebar);
+  --color-nav-active: var(--nav-active);
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-lime: var(--lime);
+  --color-lime-ink: var(--lime-ink);
+  --color-canvas: var(--canvas);
+  --color-hue-lime-bg: var(--hue-lime-bg);
+  --color-hue-lime-fg: var(--hue-lime-fg);
+  --color-hue-lavender-bg: var(--hue-lavender-bg);
+  --color-hue-lavender-fg: var(--hue-lavender-fg);
+  --color-hue-peach-bg: var(--hue-peach-bg);
+  --color-hue-peach-fg: var(--hue-peach-fg);
+  --color-hue-sky-bg: var(--hue-sky-bg);
+  --color-hue-sky-fg: var(--hue-sky-fg);
+  --color-hue-mint-bg: var(--hue-mint-bg);
+  --color-hue-mint-fg: var(--hue-mint-fg);
+  --color-hue-rose-bg: var(--hue-rose-bg);
+  --color-hue-rose-fg: var(--hue-rose-fg);
+
+  --shadow-card: var(--shadow-card);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-optical-sizing: auto;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-medium tracking-[-0.025em];
+    text-wrap: balance;
+  }
+  input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .dark input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
+
+@layer components {
+  /* Card surface used across the app */
+  .surface {
+    @apply rounded-xl border bg-card shadow-card;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Motion utilities ---------- */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Two chevrons: one slides out to the right while the next slides in from the left. */
+@keyframes chevron-out {
+  to {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+@keyframes chevron-in {
+  from {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee var(--marquee-duration, 30s) linear infinite;
+  }
+  .animate-marquee-reverse {
+    animation: marquee var(--marquee-duration, 30s) linear infinite reverse;
+  }
+  .animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+  }
+  /* Accent words: serif italic, slightly larger to match the sans cap height */
+  .accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-size: 1.08em;
+  }
+  .label-mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+  }
+}
+
+.marquee-pause:hover .animate-marquee,
+.marquee-pause:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}
+
+/* ---------- Scrollbar, selection, smooth scroll ---------- */
+
+::selection {
+  background: var(--lime);
+  color: var(--lime-ink);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--muted-foreground) 32%, transparent);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-400);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--muted-foreground) 35%, transparent) transparent;
+  }
+}
+
+/* Lenis smooth scrolling (landing page) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------- Pop-up motion for dialogs, sheets and menus ---------- */
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(14px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+@keyframes pop-out {
+  to {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+    filter: blur(4px);
+  }
+}
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+[data-slot='dialog-overlay'],
+[data-slot='alert-dialog-overlay'],
+[data-slot='sheet-overlay'] {
+  background: rgb(10 10 14 / 0.42) !important;
+  backdrop-filter: blur(6px);
+}
+[data-slot='dialog-overlay'][data-state='open'],
+[data-slot='alert-dialog-overlay'][data-state='open'],
+[data-slot='sheet-overlay'][data-state='open'] {
+  animation: overlay-in 0.35s ease both;
+}
+[data-slot='dialog-content'][data-state='open'],
+[data-slot='alert-dialog-content'][data-state='open'] {
+  animation: pop-in 0.45s cubic-bezier(0.22, 1.25, 0.36, 1) both;
+  box-shadow: 0 40px 100px -30px rgb(10 10 14 / 0.45);
+}
+[data-slot='dialog-content'][data-state='closed'],
+[data-slot='alert-dialog-content'][data-state='closed'] {
+  animation: pop-out 0.18s ease-in both;
+}
+[data-slot='sheet-content'] {
+  animation-duration: 0.5s !important;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+[data-slot='dropdown-menu-content'][data-state='open'],
+[data-slot='select-content'][data-state='open'] {
+  animation: menu-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  box-shadow: 0 18px 40px -16px rgb(10 10 14 / 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-slot] {
+    animation: none !important;
+  }
+}
