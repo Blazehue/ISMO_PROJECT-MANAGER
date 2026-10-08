@@ -1,0 +1,25 @@
+node_modules/
+dist/
+build/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage/
+.pg-data/
+apps/api/src/generated/
+# Expo
+.expo/
+apps/mobile/android/
+apps/mobile/ios/
+*.apk
+*.aab
+# Vercel
+.vercel
+
+# Assessment brief (not ours to publish)
+*.pdf
+
+# Design reference screenshots (third-party templates)
+/design.*

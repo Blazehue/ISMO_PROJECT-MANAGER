@@ -1,0 +1,24 @@
+{
+  "name": "ismo-project-management",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Project Management System — React web + Expo Android clients on one Express/PostgreSQL API",
+  "packageManager": "pnpm@12.9.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev:api": "pnpm --filter @ismo/api dev",
+    "dev:web": "pnpm --filter @ismo/web dev",
+    "dev:mobile": "pnpm --filter @ismo/mobile start",
+    "db:local": "pnpm --filter @ismo/api db:local",
+    "build": "pnpm --filter @ismo/api build && pnpm --filter @ismo/web build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --filter @ismo/api test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "3.9.9"
+  }
+}
