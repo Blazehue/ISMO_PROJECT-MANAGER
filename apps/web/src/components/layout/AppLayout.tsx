@@ -306,7 +306,7 @@ export function AppLayout() {
           </div>
 
           <ClickSpark />
-        <ScrollProgress className="h-[2px]" />
+          <ScrollProgress className="h-[2px]" />
           <CommandPalette
             open={paletteOpen}
             onOpenChange={setPaletteOpen}

@@ -55,14 +55,26 @@ export function SlideToConfirm({
     onConfirm();
   };
 
-  const colors = tone === 'danger' ? { track: 'bg-red-50 dark:bg-red-500/10', fill: 'bg-red-500', text: 'text-red-600 dark:text-red-400' } : { track: 'bg-muted', fill: 'bg-lime', text: 'text-foreground' };
+  const colors =
+    tone === 'danger'
+      ? { track: 'bg-red-50 dark:bg-red-500/10', fill: 'bg-red-500', text: 'text-red-600 dark:text-red-400' }
+      : { track: 'bg-muted', fill: 'bg-lime', text: 'text-foreground' };
 
   return (
-    <div ref={trackRef} className={cn('relative h-[52px] w-full overflow-hidden rounded-[14px] p-1 select-none', colors.track, className)}>
-      <motion.div className={cn('absolute inset-y-1 left-1 rounded-[11px] opacity-20', colors.fill)} style={{ width: fill }} />
+    <div
+      ref={trackRef}
+      className={cn('relative h-[52px] w-full overflow-hidden rounded-[14px] p-1 select-none', colors.track, className)}
+    >
+      <motion.div
+        className={cn('absolute inset-y-1 left-1 rounded-[11px] opacity-20', colors.fill)}
+        style={{ width: fill }}
+      />
       <motion.span
         style={{ opacity: labelOpacity }}
-        className={cn('pointer-events-none absolute inset-0 flex items-center justify-center pl-10 text-[13.5px] font-medium', colors.text)}
+        className={cn(
+          'pointer-events-none absolute inset-0 flex items-center justify-center pl-10 text-[13.5px] font-medium',
+          colors.text,
+        )}
       >
         {label}
         <span className="ml-1.5 inline-flex animate-pulse">→</span>
@@ -91,7 +103,13 @@ export function SlideToConfirm({
           tone === 'danger' ? 'bg-red-500' : 'bg-[#242426] text-lime',
         )}
       >
-        {pending ? <Loader2 className="size-4 animate-spin" /> : done ? <Check className="size-4" /> : <ArrowRight className="size-4" />}
+        {pending ? (
+          <Loader2 className="size-4 animate-spin" />
+        ) : done ? (
+          <Check className="size-4" />
+        ) : (
+          <ArrowRight className="size-4" />
+        )}
       </motion.button>
     </div>
   );
