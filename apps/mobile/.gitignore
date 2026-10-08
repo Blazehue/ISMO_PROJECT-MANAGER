@@ -1,0 +1,9 @@
+.expo/
+expo-env.d.ts
+android/
+ios/
+dist/
+web-build/
+*.apk
+*.aab
+.env
