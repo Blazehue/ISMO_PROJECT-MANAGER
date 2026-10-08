@@ -9,7 +9,7 @@ created on your phone shows up on the web after a refresh, and the other way rou
 | **Web app**      | https://ismo-project-manager.vercel.app                                                                                                                                                                                                    |
 | **API**          | https://ismo-api-j4b7.onrender.com/api/health                                                                                                                                                                                              |
 | **Android APK**  | [Download the APK](https://expo.dev/artifacts/eas/9DBgyktQg4BN2_74ImOvuXTimA1-tmnPexSBH36YpRM.apk) · [EAS build page (QR install)](https://expo.dev/accounts/blazehue/projects/ismo-workspace/builds/e9572902-14f0-4dc7-a05d-cd50e75457f6) |
-| **Demo video**   | `<link>`                                                                                                                                                                                                                                   |
+| **Demo video**   | https://youtu.be/N-6jSb6B58w                                                                                                                                                                                                                 |
 | **Demo account** | `demo@ismo.test` / `Demo@1234` (test data only)                                                                                                                                                                                            |
 
 > The API runs on Render's free tier, which sleeps when idle. The first request after a pause can take
